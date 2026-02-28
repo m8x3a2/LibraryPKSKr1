@@ -1,0 +1,32 @@
+<Window x:Class="Library01.Views.AuthorsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Управление авторами" Height="450" Width="560"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" x:Name="DgAuthors"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  Margin="0,0,0,8">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="140"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="120"/>
+                <DataGridTextColumn Header="Год рождения" Binding="{Binding BirthYear}" Width="100"/>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Country}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Content="Добавить" Padding="8,4" Margin="0,0,8,0" Click="BtnAdd_Click"/>
+            <Button Content="Редактировать" Padding="8,4" Margin="0,0,8,0" Click="BtnEdit_Click"/>
+            <Button Content="Удалить" Padding="8,4" Click="BtnDelete_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
